@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText principal, rate, time;
     TextView output;
-    Button calculate;
+    Button calculate, reset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +25,22 @@ public class MainActivity extends AppCompatActivity {
         time = findViewById(R.id.time);
         calculate = findViewById(R.id.calculate);
         output = findViewById(R.id.output);
+        reset = findViewById(R.id.reset);
 
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calculateInterest();
+            }
+        });
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                output.setText("Output");
+                principal.setText("");
+                rate.setText("");
+                time.setText("");
             }
         });
     }
